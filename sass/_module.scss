@@ -1,0 +1,59 @@
+@use "variable" as v;
+@use "mixin" as m;
+
+/*base*/
+html {
+  font-size: v.$baseFontSize + px;
+}
+
+body {
+  font-family: "游ゴシック体", "YuGothic", "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+  letter-spacing: 0.1em;
+  color: v.color(main);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 0 4%;
+}
+
+.sec-ttl {
+  display: inline-block;
+  font-size: v.rem(36);
+  font-weight: bold;
+  margin-bottom: 100px;
+  position: relative;
+  @include m.tab {
+    font-size: v.rem(28);
+  }
+  &::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: v.color(main);
+    position: absolute;
+    bottom: -20px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}

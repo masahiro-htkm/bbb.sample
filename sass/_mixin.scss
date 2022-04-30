@@ -1,0 +1,10 @@
+@use 'variable' as v;
+
+// メディアクエリ
+$tab: 900px;
+
+@mixin tab {
+    @media (max-width: ($tab)) {
+        @content;
+    }
+}

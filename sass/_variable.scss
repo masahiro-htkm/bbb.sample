@@ -1,0 +1,18 @@
+// カラー
+$colors: (
+    main: #333333,
+    sub: #FF2A2A,
+    btn: #FF0033
+);
+
+@function color($color) {
+    @return #{map-get($colors, $color)}
+}
+
+
+// 文字サイズ
+$baseFontSize: 16;
+
+@function rem($pixels, $context: $baseFontSize) {
+    @return $pixels / $context * 1rem;
+}

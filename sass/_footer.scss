@@ -1,0 +1,46 @@
+@use 'variable' as v;
+@use 'mixin' as m;
+
+/*footer--------------------------------------
+------------------------------------------*/
+#footer {
+  background: #E8E8E8;
+  .flex-item {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    @include m.tab {
+      padding: 60px 16px 30px;
+    }
+    .item {
+      width: 25%;
+      @include m.tab {
+        width: 50%;
+        margin-bottom: 30px;
+      }
+    }
+    h5 {
+      font-size: v.rem(16);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .item-list {
+      margin-left: 10px;
+      font-weight: normal;
+      font-size: v.rem(16);
+      line-height: 1.7;
+      a {
+        color: v.color(main);
+        transition: .3s;
+        &:hover {
+          opacity: .7;
+        }
+      }
+    }
+  }
+  p {
+    text-align: center;
+    font-size: v.rem(10);
+    padding-bottom: 20px;
+  }
+}

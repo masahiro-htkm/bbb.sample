@@ -1,0 +1,145 @@
+@use 'variable' as v;
+@use 'mixin' as m;
+
+/*header--------------------------------------
+------------------------------------------*/
+#header {
+    height: 100px;
+    h1 {
+        width: 100px;
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        @include m.tab {
+            top: 25px;
+            left: 25px;
+        }
+        a {
+            display: block;
+        }
+    }
+    nav {
+        display: none;
+        background: v.color(sub);
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        z-index: 2;
+        .logo {
+            display: block;
+            width: 100px;
+            position: fixed;
+            top: 50px;
+            left: 40px;
+        }
+        .menu {
+            padding-top: 100px;
+            li {
+                margin-bottom: 50px;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        .btn {
+            padding: 20px 40px;
+            display: inline-block;
+            border: 1px solid #fff;
+            color: #fff;
+            position: relative;
+            &::before {
+                content: "";
+                width: 240px;
+                height: 1px;
+                background: #fff;
+                position: absolute;
+                bottom: -5px;
+                left: 2px;
+            }
+            &::after {
+                content: "";
+                width: 1px;
+                height: 58px;
+                background: #fff;
+                position: absolute;
+                bottom: -5px;
+                right: -5px;
+            }
+            &:hover {
+                background: #fff;
+                color: v.color(sub);
+            }
+        }
+        &.open {
+            display: block;
+        }
+    }
+    .toggle-menu {
+        width: 100px;
+        height: 100px;
+        background: v.color(sub);
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 3;
+        transform: .3s;
+        @include m.tab {
+            width: 75px;
+            height: 75px;
+        }
+        span {
+            width: 50px;
+            height: 2px;
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+            left: 25px;
+            transition: .3s;
+            @include m.tab {
+                width: 35px;
+                left: 22px;
+            }
+            &:nth-child(1) {
+                top: 35px;
+                @include m.tab {
+                    top: 24px;
+                }
+            }
+            &:nth-child(2) {
+                top: 50px;
+                @include m.tab {
+                    top: 35px;
+                }
+            }
+            &:nth-child(3) {
+                bottom: 35px;
+                @include m.tab {
+                    bottom: 27px;
+                }
+            }
+            &.open {
+                &:nth-child(1) {
+                    top: 49px;
+                    transform: rotate(45deg);
+                    @include m.tab {
+                        top: 35px;
+                    }
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    bottom: 49px;
+                    transform: rotate(-45deg);
+                    @include m.tab {
+                        bottom: 38px;
+                    }
+                }
+            }
+        }  
+    }
+}
